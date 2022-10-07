@@ -4,7 +4,6 @@ id = 2989c58c-2232-4ff9-a460-6213958b5417
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"18949226-e129c216-a4c9-4516-af0b-0eff70646d7e","path":"RESTDEV.postman_environment.json","metaData":{}}
 files[] = {"id":"18949226-ca9b73e5-d539-489b-89f1-a7d134836912","path":"RFERESTAPIsmoketests2.json","metaData":{}}
 
 [relations.collections.metaData]
