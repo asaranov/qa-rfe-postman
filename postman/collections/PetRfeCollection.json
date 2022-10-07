@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "c4972e69-a5f2-4e32-a4ef-697d35b473be",
+		"name": "PetRfeCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "18949226-c4972e69-a5f2-4e32-a4ef-697d35b473be"
+	},
+	"item": [
+		{
+			"name": "GetListPets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40a162b4-e6d4-47a0-a112-a1e6353c1260",
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"var skipFlag = false;\r",
+							"\r",
+							"pm.test(\"Verify that status code is 200\", function () {\r",
+							"    if(pm.response.code!=200){\r",
+							"        skipFlag = true;\r",
+							"    }\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5eb46a92-bf25-471f-90d2-9c2854f411a5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nameUrl}}/pet/findByStatus?status=available",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "available"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new pet  to store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ea0c4fd-3290-4712-b9e2-349a3694efec",
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"var skipFlag = false;\r",
+							"\r",
+							"pm.test(\"Verify that status code is 200\", function () {\r",
+							"    if(pm.response.code!=200){\r",
+							"        skipFlag = true;\r",
+							"    }\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "72197364-1266-447c-bbd5-372ded654926",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10,\r\n  \"name\": \"doggie\",\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Dogs\"\r\n  },\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nameUrl}}/pet",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "903f6c55-72d1-4983-a06a-73be742370c9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "66ffa15d-c5e8-459d-974a-6558632d6f68",
+				"type": "text/javascript",
+				"exec": [
+					"var skipFlag = false;",
+					"",
+					"if(pm.response.code!=200){",
+					"        skipFlag = true;",
+					"    }",
+					"else{",
+					"   var jsonData = pm.response.json();",
+					"}"
+				]
+			}
+		}
+	]
+}
